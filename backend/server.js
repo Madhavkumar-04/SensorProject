@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { format, subMonths, subYears, subWeeks, startOfMonth, startOfYear, startOfWeek, startOfDay, startOfHour, addMinutes, subHours, subDays } = require('date-fns');
 const cors = require('cors');
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5000;
 app.use(cors());
 
 // Connect to MongoDB
