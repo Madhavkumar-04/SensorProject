@@ -7,18 +7,18 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://Delote:eeeee@clustedee.t673u.mongodb.net/dashboard', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.log(err));
+// mongoose.connect('mongodb+srv://Delote:eeeee@clustedee.t673u.mongodb.net/dashboard', { useNewUrlParser: true, useUnifiedTopology: true })
+//     .then(() => console.log('MongoDB connected'))
+//     .catch(err => console.log(err));
 
-// Define a schema and model for sensor data
-const sensorDataSchema = new mongoose.Schema({
-    sensorType: String,
-    timestamp: Date,
-    value: Number
-});
+// // Define a schema and model for sensor data
+// const sensorDataSchema = new mongoose.Schema({
+//     sensorType: String,
+//     timestamp: Date,
+//     value: Number
+// });
 
-const SensorData = mongoose.model('SensorData', sensorDataSchema);
+// const SensorData = mongoose.model('SensorData', sensorDataSchema);
 
 // Helper function to calculate start time based on range
 const getStartTime = (range) => {
@@ -99,13 +99,13 @@ app.get('/api/:sensor', async (req, res) => {
     }
 
     // Delete existing data for the sensor
-    await SensorData.deleteMany({ sensorType: sensor });
+    // await SensorData.deleteMany({ sensorType: sensor });
 
     // Generate new data and insert into the database
     const newData = generateData(sensor, range, generateValue);
-    await SensorData.insertMany(newData);
-    const data = await SensorData.find({ sensorType: sensor });
-    res.json(data);
+    // await SensorData.insertMany(newData);
+    // const data = await SensorData.find({ sensorType: sensor });
+    res.json(newData);
 });
 
 app.listen(PORT, () => {

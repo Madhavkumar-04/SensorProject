@@ -29,7 +29,7 @@ const LatencySensor = () => {
           return (
             <div className="custom-tooltip">
               <p className="label">{`Time: ${format(new Date(timestamp), 'PPpp')}`}</p>
-              <p className="intro">{`speed: ${value} ms`}</p>
+              <p className="intro">{`latency: ${value} ms`}</p>
             </div>
           );
         }
